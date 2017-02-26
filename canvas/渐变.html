@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <script>
+     var can;
+	 var ctx;
+	 function init(){
+		 can=document.getElementById("canvas");
+		 ctx=can.getContext("2d");
+		 draw()
+		 }
+	 document.body.onload=init();
+		 
+	 function draw(){
+		 var linearGrad=ctx.createLinearGradient(0,0,0,800);
+		 linearGrad.addColorStop(0.0,"yellow");
+		 linearGrad.addColorStop(0.5,"green");
+		 linearGrad.addColorStop(1.0,"red");
+		 ctx.fillStyle=linearGrad;
+		 ctx.fillRect(0,0,800,800);
+
+		 
+		 }
+  </script>
+</body>
+</html>

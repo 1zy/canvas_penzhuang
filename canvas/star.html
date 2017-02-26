@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="800" style="background:#000;"></canvas>
+</body>
+<script>
+  var can;
+  var ctx;
+  
+  function init(){
+	  can=document.getElementById("canvas");
+	  ctx=can.getContext("2d");
+	  for(var i=0;i<200;i++){
+		  var rot=Math.random()*360;
+		  var R=Math.random()*10+10;
+		  var x=Math.random()*can.width;
+		  var y=Math.random()*can.height;
+		  drawStar(ctx,rot,R,R/2,x,y)
+		  }
+	  }
+  document.body.onload=init();
+  function drawStar(ctx,rot,R,r,x,y){
+		 ctx.beginPath();
+	     for(var i=0; i<5;i++){
+		   ctx.lineTo(Math.cos((18+72*i-rot)/180*Math.PI)*R+x,
+		   -Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+		   ctx.lineTo(Math.cos((54+72*i-rot)/180*Math.PI)*r+x,
+		   -Math.sin((54+72*i-rot)/180*Math.PI)*r+y);
+		   }
+	    ctx.closePath()
+		ctx.lineJoin="round"
+		ctx.fillStyle="#fb3";
+		ctx.strokeStyle="fb5";
+		ctx.fill();
+	    ctx.stroke();
+		}
+</script>
+</html>

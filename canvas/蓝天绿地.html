@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <script>
+    var can;
+	var ctx;
+	window.onload=function(){
+		can=document.getElementById("canvas");
+		ctx=can.getContext("2d");
+		drawSky();
+		drawLand()
+		}
+	function drawSky(){
+		var liner=ctx.createLinearGradient(0,0,0,800);
+		liner.addColorStop(0.0,"#021d69");
+		liner.addColorStop(1.0,"#010626");
+		ctx.fillStyle=liner;
+		ctx.fillRect(0,0,800,800);
+		}
+	function drawLand(){
+		ctx.beginPath();
+		ctx.moveTo(0,600);
+		ctx.bezierCurveTo(200,400,600,600,800,600);
+		ctx.lineTo(800,800);
+		ctx.lineTo(0,800);
+		var lan=ctx.createLinearGradient(0,600,0,800);
+		lan.addColorStop(0.0,"#030");
+		lan.addColorStop(1.0,"#580")
+		ctx.fillStyle=lan;
+		ctx.closePath()
+		ctx.fill();
+		ctx.stroke();
+		}
+  </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="800" style="background:#000"></canvas>
+</body>
+<script>
+  var can;
+  var ctx;
+  window.onload=function(){
+	  init()
+	  draw();
+	  }
+  function init(){
+	  can=document.getElementById("canvas");
+	  ctx=can.getContext("2d");	
+	   for(var i=0;i<100;i++){
+	   var rot=Math.random()*360;
+	   var x=Math.random()*can.width;
+	   var y=Math.random()*can.height;
+	   var r=Math.random()*10+10;
+	   drawStar(ctx,rot,r,r/2,x,y)
+	   }	 
+
+	  }
+  function draw(){
+	  
+	  
+	 // ctx.lineCap="round"
+//	  
+//      ctx.beginPath();
+//	  ctx.moveTo(100,200);
+//	  ctx.lineTo(300,400);
+//	  ctx.lineTo(100,600);
+//	  ctx.lineWidth=10;
+//	  ctx.strokeStyle="red";
+//	  ctx.stroke();
+//	  
+//      ctx.beginPath();
+//	  ctx.moveTo(300,200);
+//	  ctx.lineTo(500,400);
+//	  ctx.lineTo(300,600);
+//	  ctx.lineWidth=10;
+//	  ctx.strokeStyle="green";
+//	  ctx.stroke();
+//
+//	  
+//      ctx.beginPath();
+//	  ctx.moveTo(500,200);
+//	  ctx.lineTo(700,400);
+//	  ctx.lineTo(500,600);
+//	  ctx.lineWidth=10;
+//	  ctx.closePath();
+//	  ctx.fillStyle="red";
+//	  ctx.fill();
+//	  ctx.strokeStyle="blue";
+//	  ctx.stroke();
+
+       //ctx.lineWidth=10;
+//
+//     ctx.beginPath();
+//     ctx.rect(10,10,200,200);
+//     ctx.fillStyle="red";
+//	 ctx.strokeStyle="blue";
+//	 ctx.fill();
+//	 ctx.stroke();
+//	 
+//	 ctx.beginPath()
+//	 ctx.fillStyle="rgba(238,212,9,0.5)";
+//	 ctx.strokeStyle="blue";
+//	 ctx.fillRect(110,110,200,200);
+//	 ctx.strokeRect(110,110,200,200) 
+     
+     //  ctx.moveTo(100,100);
+//	 ctx.lineTo(100,700);
+//     ctx.strokeStyle="blue";
+//	 ctx.lineCap="round";
+//	 ctx.stroke()
+//	 
+//	 ctx.beginPath();
+//	 ctx.moveTo(200,100);
+//	 ctx.lineTo(200,700);
+//	 ctx.strokeStyle="yellow";
+//	 ctx.lineCap="butt";
+//	 ctx.stroke();
+//	 
+//	 ctx.beginPath();
+//	 ctx.moveTo(300,100);
+//	 ctx.lineTo(300,700);
+//	 ctx.strokeStyle="red";
+//	 ctx.lineCap="square";
+//	 ctx.stroke();
+  
+     
+	
+	  }
+	  
+	function drawStar(ctx,rot,R,r,x,y){
+		 ctx.beginPath();
+	     for(var i=0; i<5;i++){
+		   ctx.lineTo(Math.cos((18+72*i-rot)/180*Math.PI)*R+x,
+		   -Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+		   ctx.lineTo(Math.cos((54+72*i-rot)/180*Math.PI)*r+y,
+		   -Math.sin((54+72*i-rot)/180*Math.PI)*r+y);
+		   }
+	    ctx.closePath()
+		ctx.lineJoin="round"
+		ctx.lineWidth=100;
+		ctx.fillStyle="#fb3";
+		ctx.strokeStyle="fb5";
+		ctx.fill();
+	    ctx.stroke();
+		}
+</script>
+</html>
